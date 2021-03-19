@@ -1,0 +1,44 @@
+
+modLoader="javafml"
+
+loaderVersion="[36,)"
+
+license="All rights reserved"
+
+[[mods]]
+
+modId="folfoefit"
+
+version="1.16.5-0.1"
+
+displayName="Folly, Foes, and Fights"
+
+logoFile="examplemod.png"
+
+credits="Coded by Peeko"
+
+authors="All Artists"
+
+description='''
+A remake of a Classic Mod in a new light
+'''
+
+[[dependencies.examplemod]]
+
+    modId="forge" #mandatory
+
+    mandatory=true #mandatory
+
+    versionRange="[36,)"
+
+    ordering="NONE"
+
+    side="BOTH"
+
+[[dependencies.examplemod]]
+    modId="minecraft"
+    mandatory=true
+
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"

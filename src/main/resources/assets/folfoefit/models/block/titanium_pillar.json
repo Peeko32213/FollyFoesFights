@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "bottom": "folfoefit:blocks/titanium_tile",
+    "top": "folfoefit:blocks/titanium_tile",
+    "side": "folfoefit:blocks/titanium_pillar"
+  }
+}
