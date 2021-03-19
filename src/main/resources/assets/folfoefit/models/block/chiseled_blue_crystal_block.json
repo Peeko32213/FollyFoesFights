@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "folfoefit:blocks/chiseled_blue_crystal_block"
+  }
+}

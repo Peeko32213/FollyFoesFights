@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "bottom": "folfoefit:blocks/ruby_pillar_top",
+    "top": "folfoefit:blocks/ruby_pillar_top",
+    "side": "folfoefit:blocks/ruby_pillar"
+  }
+}

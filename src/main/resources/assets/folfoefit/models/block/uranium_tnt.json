@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "bottom": "folfoefit:blocks/uranium_tnt_top",
+    "top": "folfoefit:blocks/uranium_tnt_top",
+    "side": "folfoefit:blocks/uranium_tnt_side"
+  }
+}

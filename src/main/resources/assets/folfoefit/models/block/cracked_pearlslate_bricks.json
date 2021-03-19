@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "folfoefit:blocks/cracked_pearlslate_bricks"
+  }
+}
