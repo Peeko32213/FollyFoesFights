@@ -1,4 +1,4 @@
-package com.peeko.FollyFoesFights.init;
+package com.peeko.FollyFoesFights.registry;
 
 import com.peeko.FollyFoesFights.FollyFoesFights;
 import net.minecraft.item.Item;

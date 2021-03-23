@@ -1,5 +1,4 @@
 {
-  "entity.folfoefit.jeff": "Robot Jeffery",
   "block.folfoefit.salt_block": "Salt Block",
   "block.folfoefit.salt_ore": "Salt Ore",
   "block.folfoefit.titanium_block": "Titanium Block",
@@ -26,11 +25,13 @@
   "block.folfoefit.uranium_ore": "Uranium Ore",
   "block.folfoefit.nether_uranium_ore": "Nether Uranium Ore",
   "block.folfoefit.uranium_tnt": "Uranium TNT",
+  "entity.folfoefit.uranium_tnt": "Uranium TNT Boom",
   "block.folfoefit.uranium_tile": "Uranium Tiles",
   "block.folfoefit.pearlslate": "Pearlslate",
   "block.folfoefit.pearlslate_bricks": "Pearlslate Bricks",
   "block.folfoefit.encrusted_pearlslate": "Encrusted Pearlslate",
   "block.folfoefit.pearlslate_tile": "Pearlslate Tiles",
   "block.folfoefit.polished_pearlslate": "Polished Pearlslate",
-  "block.folfoefit.cracked_pearlslate_bricks": "Cracked Pearlslate Bricks"
+  "block.folfoefit.cracked_pearlslate_bricks": "Cracked Pearlslate Bricks",
+  "entity.folfoefit.cliffracer": "Cliff Racer"
 }

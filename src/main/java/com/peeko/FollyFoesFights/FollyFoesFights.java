@@ -1,30 +1,22 @@
 package com.peeko.FollyFoesFights;
 
-import com.peeko.FollyFoesFights.client.model.RoboJefferyModel;
-import com.peeko.FollyFoesFights.entities.RoboJefferyEntity;
-import com.peeko.FollyFoesFights.init.FollyFoesFightsBlocks;
-import com.peeko.FollyFoesFights.init.FollyFoesFightsEntities;
-import com.peeko.FollyFoesFights.init.FollyFoesFightsItems;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+
+import com.peeko.FollyFoesFights.client.ClientRegister;
+import com.peeko.FollyFoesFights.registry.FollyFoesFightsBlocks;
+import com.peeko.FollyFoesFights.registry.FollyFoesFightsEntities;
+import com.peeko.FollyFoesFights.registry.FollyFoesFightsItems;
+import com.peeko.FollyFoesFights.registry.other.FollyFoesFightsEntityAttributes;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.stream.Collectors;
 
 
 @Mod("folfoefit")
@@ -39,7 +31,7 @@ public class FollyFoesFights
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
         DeferredRegister<?>[] registers = {
@@ -54,13 +46,17 @@ public class FollyFoesFights
 
     }
 
-    private void setup(final FMLCommonSetupEvent event)
+    void setup(final FMLCommonSetupEvent event)
     {
-
+        event.enqueueWork(() -> {
+            FollyFoesFightsEntityAttributes.putAttributes();
+        });
     }
 
-    private void doClientStuff(final FMLClientSetupEvent event) {
-
+    @OnlyIn(Dist.CLIENT)
+    public void clientSetup(final FMLClientSetupEvent event) {
+        ClientRegister.registerBlockRenderers();
+        ClientRegister.registerEntityRenderers();
     }
 
 

@@ -1,10 +1,9 @@
-package com.peeko.FollyFoesFights.init;
+package com.peeko.FollyFoesFights.registry;
 
 import com.peeko.FollyFoesFights.FollyFoesFights;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SoundType;
+import com.peeko.FollyFoesFights.block.UraniumTNTBlock;
+import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -23,17 +22,18 @@ public class FollyFoesFightsBlocks {
     //Salt
     public static final RegistryObject<Block> SALT = register("salt_block", () -> new Block(AbstractBlock.Properties.copy(Blocks.STONE).sound(SoundType.BASALT).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> SALT_ORE = register("salt_ore", () -> new Block(AbstractBlock.Properties.copy(Blocks.IRON_ORE).sound(SoundType.STONE).requiresCorrectToolForDrops()));
+
     //Titanium
     public static final RegistryObject<Block> TITANIUM = register("titanium_block", () -> new Block(AbstractBlock.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.METAL).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> TITANIUM_ORE = register("titanium_ore", () -> new Block(AbstractBlock.Properties.copy(Blocks.ANCIENT_DEBRIS).sound(SoundType.STONE).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> TITANIUM_PILLAR = register("titanium_pillar", () -> new Block(AbstractBlock.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.METAL).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> TITANIUM_TILES = register("titanium_tile", () -> new Block(AbstractBlock.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.METAL).requiresCorrectToolForDrops()));
+
     //Uranium
     public static final RegistryObject<Block> URANIUM = register("uranium_block", () -> new Block(AbstractBlock.Properties.copy(Blocks.MAGMA_BLOCK).sound(SoundType.METAL).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> URANIUM_ORE = register("uranium_ore", () -> new Block(AbstractBlock.Properties.copy(Blocks.MAGMA_BLOCK).sound(SoundType.STONE).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> NETHER_URANIUM_ORE = register("nether_uranium_ore", () -> new Block(AbstractBlock.Properties.copy(Blocks.MAGMA_BLOCK).sound(SoundType.STONE).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> URANIUM_TILES = register("uranium_tile", () -> new Block(AbstractBlock.Properties.copy(Blocks.MAGMA_BLOCK).sound(SoundType.METAL).requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> URANIUM_TNT = register("uranium_tnt", () -> new Block(AbstractBlock.Properties.copy(Blocks.TNT).sound(SoundType.GRASS).requiresCorrectToolForDrops()));
 
     //Ruby
     public static final RegistryObject<Block> RUBY = register("ruby_block", () -> new Block(AbstractBlock.Properties.copy(Blocks.DIAMOND_BLOCK).sound(SoundType.METAL).requiresCorrectToolForDrops()));
@@ -68,6 +68,8 @@ public class FollyFoesFightsBlocks {
     public static final RegistryObject<Block> BLUE_CRYSTAL_CLUSTER = register("blue_crystal_cluster", () -> new Block(AbstractBlock.Properties.copy(Blocks.BROWN_MUSHROOM).sound(SoundType.GLASS).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> PINK_CRYSTAL_CLUSTER = register("pink_crystal_cluster", () -> new Block(AbstractBlock.Properties.copy(Blocks.BROWN_MUSHROOM).sound(SoundType.GLASS).requiresCorrectToolForDrops()));
 
+    //Special Blocks
+    public static final RegistryObject<Block> URANIUM_TNT = register("uranium_tnt", () -> new UraniumTNTBlock(AbstractBlock.Properties.of(Material.EXPLOSIVE).instabreak().sound(SoundType.GRASS)));
 
 
     private static <T extends Block> RegistryObject<T> baseRegister(String name, Supplier<? extends T> block, Function<RegistryObject<T>, Supplier<? extends Item>> item) {
@@ -83,4 +85,6 @@ public class FollyFoesFightsBlocks {
     private static <T extends Block> Supplier<BlockItem> registerBlockItem(final RegistryObject<T> block) {
         return () -> new BlockItem(Objects.requireNonNull(block.get()), new Item.Properties().tab(ItemGroup.TAB_BUILDING_BLOCKS));
     }
+
+
 }
